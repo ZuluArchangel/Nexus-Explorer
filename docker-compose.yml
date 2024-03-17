@@ -16,9 +16,6 @@ services:
       - "5432:5432"
 
   martin:
-    build:
-      context: .
-      dockerfile: dockerfile.martin
     image: ghcr.io/maplibre/martin:latest
     container_name: martin_dev
     depends_on:
@@ -27,8 +24,6 @@ services:
       - "3000:3000"
     volumes:
       - ./config:/config
-    entrypoint: ["dockerize", "-wait", "tcp://postgis:5432", "-timeout", "30s"]
-    command: ["martin", "--config", "/config/config.yaml"]
     environment:
       DATABASE_URL: ${DATABASE_URL}
       
