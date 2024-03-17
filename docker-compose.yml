@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgis:
+    image: postgis/postgis
+    container_name: postgis
+    environment:
+      POSTGRES_USER: 'zuluarchangel'
+      POSTGRES_PASSWORD: 'nexusexplorer'
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  martin:
+    image: ghcr.io/maplibre/martin
+    container_name: martin
+    depends_on:
+      - postgis
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./config:/config
+    command: --config /config/config.yaml
+    environment:
+      DATABASE_URL: postgresql://zuluarchangel:nexusexplorer@postgis:5432/your_database
+
+volumes:
+  postgis_data:
