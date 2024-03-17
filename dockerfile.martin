@@ -1,3 +1,5 @@
 # Use the official Martin image as the base image
 FROM ghcr.io/maplibre/martin:latest
 
+
+CMD ["martin", "--config", "/config/config.yaml"]
