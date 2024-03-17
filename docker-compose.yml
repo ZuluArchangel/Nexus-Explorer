@@ -24,7 +24,7 @@ services:
       - "3000:3000"
     volumes:
       - ./config:/config
-      - ./wait-for-it.sh:/wait-for-it.sh
+      - ./wait-for-it.sh:wait-for-it.sh
     entrypoint: ["/wait-for-it.sh", "postgis:5432", "--"]
     command: ["martin", "--config", "/config/config.yaml"]
     environment:
