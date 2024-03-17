@@ -4,7 +4,7 @@ services:
   postgis:
     build:
       context: .
-      dockerfile: Dockerfile.postgis
+      dockerfile: dockerfile.postgis
     container_name: postgis_dev
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
