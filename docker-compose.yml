@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: dockerfile.postgis
     healthcheck:
-     test: ["CMD-SHELL", "pg_isready -U youruser -d yourdatabase -h localhost"]
+     test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB} -h localhost"]
      interval: 10s
      timeout: 5s
      retries: 5
