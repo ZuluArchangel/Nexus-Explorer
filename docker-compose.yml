@@ -30,10 +30,8 @@ services:
       - "3000:3000"
     volumes:
       - ./config:/config
-    entrypoint: ["/wait-for-it.sh", "postgis:5432", "--"]
     command: ["martin", "--config", "/config/config.yaml"]
     environment:
       DATABASE_URL: ${DATABASE_URL}
-      
 volumes:
   postgis_data:
