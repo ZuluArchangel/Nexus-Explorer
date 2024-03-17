@@ -16,6 +16,9 @@ services:
       - "5432:5432"
 
   martin:
+    build:
+      context: .
+      dockerfile: dockerfile.martin
     image: ghcr.io/maplibre/martin:latest
     container_name: martin_dev
     depends_on:
