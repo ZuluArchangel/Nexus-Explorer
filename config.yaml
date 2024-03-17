@@ -2,13 +2,14 @@ logging:
   level: info
 
 database:
-  uri: postgresql://your_user:your_password@postgis:5432/your_database
-  pool_size: 15
+  pool_size: 20
 
-# Define your layers here
-# layers:
-#   example_layer:
-#     table_name: your_table
-#     geometry_column: geom
-#     id_column: id
-#     srid: 4326
+layers:
+  my_layer:
+    table_name: my_table
+    geometry_column: geom
+    id_column: id
+    srid: 4326
+    properties:
+      - name
+      - description
