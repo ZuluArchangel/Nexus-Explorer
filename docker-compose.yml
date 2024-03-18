@@ -30,7 +30,7 @@ services:
       - "3000:3000"
     volumes:
       - ./config:/config
-    command: ["martin", "--config", "/config/config.yaml"]
+    command: ["--config", "/config/config.yaml"]
     environment:
       DATABASE_URL: ${DATABASE_URL}
 volumes:
