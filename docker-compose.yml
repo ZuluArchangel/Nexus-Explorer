@@ -33,5 +33,14 @@ services:
     command: ["--config", "/config/config.yaml"]
     environment:
       DATABASE_URL: ${DATABASE_URL}
+ 
+  ##Need to adjust the volume path to the directory of the 
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    ports:
+      - "3001:80" 
+
 volumes:
   postgis_data:
