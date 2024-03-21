@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Map</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <meta charset='utf-8' />
+    <title>Mapbox GL JS Map with Martin Tiles</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
 </head>
 <body>
-    <div id="map" style="width: 100%; height: 600px;"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        var map = L.map('map').setView([51.505, -0.09], 13); // Set this to your data's approximate location
-        L.tileLayer('http://localhost:3000/tiles/my_layer/{z}/{x}/{y}.pbf', {
-            maxZoom: 19,
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-        }).addTo(map);
-    </script>
+<div id='map'></div>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoienVsdWFyY2hhbmdlbCIsImEiOiJjbHUwazh3bHowYm0xMmlrNG9hMDJkczd0In0.WkQccyZXaPhAONvexsdyUg'; // If using styles or other Mapbox hosted resources
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: {
+            "version": 8,
+            "sources": {
+                "my_layer": {
+                    "type": "vector",
+                    "tiles": ["http://localhost:3000/tiles/my_layer/{z}/{x}/{y}.pbf"],
+                    "minzoom": 0,
+                    "maxzoom": 14
+                }
+            },
+            "layers": [{
+                "id": "my_layer",
+                "type": "fill",
+                "source": "my_layer",
+                "source-layer": "my_layer", // Replace with your source layer name if different
+                "paint": {
+                    "fill-color": "#088",
+                    "fill-opacity": 0.8
+                }
+            }]
+        },
+        center: [-0.09, 51.505], // Starting position [lng, lat]
+        zoom: 9 // Starting zoom
+    });
+</script>
 </body>
 </html>
+
