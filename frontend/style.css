@@ -1,0 +1,39 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    color: lime;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#terminal {
+    width: 95%; /* Increased width for a wider display */
+    height: auto; /* Adjust height dynamically based on content */
+    min-height: 90%; /* Ensure terminal is still prominently displayed */
+    border: 2px solid lime;
+    padding: 20px;
+    margin-top: 50px; /* Move content closer to the top */
+    box-sizing: border-box;
+    overflow: auto;
+    white-space: pre; /* Maintain spacing in ASCII art */
+    text-align: left; /* Align text to the left */
+}
+
+#blinker, #nexus {
+    display: block; /* Ensure these elements are treated as block for centering */
+    text-align: center; /* Center text */
+    width: 100%; /* Full width to align text correctly */
+}
+
+#blinker {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
