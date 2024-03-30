@@ -38,7 +38,7 @@ services:
   nodejs_backend:
     build:
       context: ./backend  # Path to your Node.js application
-      dockerfile: dockerfile.nodejs 
+      dockerfile: dockerfile.node
     container_name: nodejs_backend_dev
     environment:
       # Environment variables for your Node.js app
