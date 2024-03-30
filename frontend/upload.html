@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            color: white;
+        }
+        #navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        #navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        #content {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .form-wrapper {
+            margin: auto;
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="file"] {
+            margin-top: 20px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <a href="map.html">Map</a>
+    <a href="upload.html">Upload</a>
+    <a href="info.html">Info</a>
+</nav>
+
+<div id="content">
+    <div class="form-wrapper">
+        <h2>Upload Wardriving Data</h2>
+        <form action="YOUR_SERVER_ENDPOINT_HERE" method="post" enctype="multipart/form-data">
+            <input type="file" name="wardrivingFile" required>
+            <input type="submit" value="Upload Data">
+        </form>
+    </div>
+</div>
+
+<script>
+    // Optional: JavaScript for interactive components
+</script>
+
+</body>
+</html>
